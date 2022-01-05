@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block 'conteudo' %}
+    <h1>Encurte um link abaixo</h1>
+    <form method='POST' action="{% url 'encurtador:link_encurtado' %}">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    {{ form }}
+                </td>
+                <td>
+                    <input type='submit' value='Encurtar'>
+                </td>
+            </tr>
+        </table>
+
+{% endblock %} 
