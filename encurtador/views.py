@@ -1,6 +1,5 @@
-from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
-from django.views.generic import TemplateView, FormView, RedirectView, DetailView
+from django.views.generic import FormView
 from .models import Encurtador
 from .forms import EncurtadorForm
 
@@ -24,7 +23,6 @@ def link_encurtado(request):
         except:
             encurtador = Encurtador.objects.get(link_original=original)
 
-        print(encurtador)
 
     return render(request, 'encurtador/encurtado.html', {'link_curto':encurtador})
 
