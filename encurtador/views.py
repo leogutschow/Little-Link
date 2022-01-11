@@ -13,6 +13,11 @@ class IndexView(FormView):
 def link_encurtado(request):
     if request.method == 'POST':
         original = request.POST.get('link_original')
+        if 'http://' in original:
+            original = original.replace('http://', '')
+        elif 'https://' in original:
+            original = original.replace('https://', '')
+            
         curto = request.POST.get('link_encurtado')
         try:
             encurtador = Encurtador.objects.create(
@@ -30,8 +35,6 @@ def link_encurtado(request):
 def redirect_view(request, link_curto):
     encurtador = Encurtador.objects.filter(link_encurtado=link_curto).values()
     link_original = encurtador[0].get('link_original')
-    if 'http://' in link_original or 'https://' in link_original:
-        return redirect(f"{link_original}")
 
     return redirect(f"https://{link_original}")
     
