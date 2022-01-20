@@ -1,1 +1,12 @@
-<a href="{% url 'encurtador:redirect' link_curto %}">http://127.0.0.1:8000/{{ link_curto }}</a>
+{% extends 'base.html' %}
+
+{% block 'conteudo' %}
+    <div class='container bg-info d-flex flex-column align-items-center text-white border'>
+        <h1 class='p-2'>Aqui está seu link encurtado! Agora pode compartilha-lo!</h1>
+        <h3 class='p-2'><a class='text-white' href="{% url 'encurtador:redirect' link_curto %}">http://127.0.0.1:8000/{{ link_curto }}</a></h3>
+        <button class='btn btn-primary'><a class='text-white' href="{% url 'encurtador:index' %}">Encurtar outro Link</a></button>
+        
+    </div>
+
+
+{% endblock %}

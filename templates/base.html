@@ -6,8 +6,8 @@
 <body class='bg-primary'>
     <nav>
         <div class='nav-bar'>
-            <img src='static/imgs/link_chain.png' style="width: 50px;">
-            <h3>Little Link</h3>
+            <a href="{% url 'encurtador:index' %}"><img src='static/imgs/link_chain.png' style="width: 50px;"></a>
+            <h3><a class='text-white' href="{% url 'encurtador:index' %}">Little Link</a></h3>
         </div>
     </nav>
     {% block 'conteudo' %}
